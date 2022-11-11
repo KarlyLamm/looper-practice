@@ -1,3 +1,13 @@
+tools:
+  jdk: 8
+envs:
+  global:
+    variables:
+      song: Carmen
 flows:
   default:
    - echo "Hello looper!"
+   - java -version
+   - echo “JAVA_HOME=$JAVA_HOME”
+  playlist:
+   - shell: echo “Playing ${song}!”
