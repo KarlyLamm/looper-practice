@@ -3,11 +3,20 @@ tools:
 envs:
   global:
     variables:
-      song: Carmen
+      songlist:
+        - song: Carmen
+          artist: George Bizet
+        - song: Round Midnight
+          artist: Thelodious Monk
+        - song: Ring of Fire
+          artist: Johnny Cash
+        - song: Billie Jean
+          artist: Michael Jackson
 flows:
   default:
    - echo "Hello looper!"
    - java -version
    - echo “JAVA_HOME=$JAVA_HOME”
   playlist:
-   - shell: echo “Playing ${song}!”
+    - foreach($songlist):
+      - echo 'Playing ${value.song} by ${value.artist}'
